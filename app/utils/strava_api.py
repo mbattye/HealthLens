@@ -19,9 +19,11 @@ class StravaAPI:
             scope=['read,activity:read_all']
         )
         authorization_url, _ = oauth.authorization_url(self.authorize_url)
+        logging.info(f"Generated authorization URL: {authorization_url}")
         return authorization_url
 
     def fetch_token(self, code):
+        logging.info(f"Attempting to fetch token with code: {code}")
         data = {
             'client_id': self.client_id,
             'client_secret': self.client_secret,
@@ -31,7 +33,9 @@ class StravaAPI:
         try:
             response = requests.post(self.token_url, data=data)
             response.raise_for_status()
-            return response.json()
+            token = response.json()
+            logging.info("Successfully fetched token")
+            return token
         except requests.exceptions.RequestException as e:
             logging.error(f"Error fetching token: {str(e)}")
             logging.error(f"Response content: {response.text}")
