@@ -1,5 +1,5 @@
 import streamlit as st
-from app.utils.data_processing import load_activities, analyze_activities
+from app.utils.data_processing import load_activities, analyse_activities
 from app.components.charts import plot_activity_types, plot_distance_over_time, plot_activity_heatmap
 from app.components.data_tables import display_summary_table
 
@@ -13,7 +13,7 @@ def dashboard_page():
         return
 
     # Analyze activities
-    summary = analyze_activities(activities_df)
+    summary = analyse_activities(activities_df)
 
     # Display summary
     st.header("Activity Summary")
