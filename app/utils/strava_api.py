@@ -1,10 +1,11 @@
+from app.utils.config import STRAVA_CLIENT_ID, STRAVA_CLIENT_SECRET
 import requests
 from requests_oauthlib import OAuth2Session
 
 class StravaAPI:
-    def __init__(self, client_id, client_secret):
-        self.client_id = client_id
-        self.client_secret = client_secret
+    def __init__(self):
+        self.client_id = STRAVA_CLIENT_ID
+        self.client_secret = STRAVA_CLIENT_SECRET
         self.token_url = 'https://www.strava.com/oauth/token'
         self.authorize_url = 'https://www.strava.com/oauth/authorize'
         self.base_url = 'https://www.strava.com/api/v3/'
@@ -33,7 +34,7 @@ class StravaAPI:
         return response.json()
 
 # Usage example:
-# strava_api = StravaAPI('YOUR_CLIENT_ID', 'YOUR_CLIENT_SECRET')
+# strava_api = StravaAPI()
 # auth_url = strava_api.get_authorization_url()
 # # Redirect user to auth_url and get the 'code' from the redirect
 # token = strava_api.fetch_token('CODE_FROM_REDIRECT')

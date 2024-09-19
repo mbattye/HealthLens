@@ -7,7 +7,7 @@ def health_analysis_page():
     st.title("Health Data Analysis")
 
     # Initialize Strava API (you'll need to handle authentication)
-    strava_api = StravaAPI('YOUR_CLIENT_ID', 'YOUR_CLIENT_SECRET')
+    strava_api = StravaAPI()
 
     # Load or fetch activities
     activities_df = load_activities()
