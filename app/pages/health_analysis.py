@@ -1,6 +1,6 @@
 import streamlit as st
 from app.utils.strava_api import StravaAPI
-from app.utils.data_processing import process_strava_activities, save_activities, load_activities, analyze_activities
+from app.utils.data_processing import process_strava_activities, save_activities, load_activities, analyse_activities
 from app.components.data_tables import display_activities_table, display_summary_table
 
 def health_analysis_page():
