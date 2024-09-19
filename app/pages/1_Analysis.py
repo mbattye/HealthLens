@@ -2,8 +2,8 @@ import streamlit as st
 from app.utils.data_processing import load_activities, analyse_activities
 from app.components.data_tables import display_activities_table, display_summary_table
 
-def health_analysis_page():
-    st.title("Health Data Analysis")
+def main():
+    st.title("Analysis")
 
     if 'strava_token' not in st.session_state:
         st.warning("Please authenticate with Strava in the Settings page before accessing your health data.")
@@ -23,4 +23,4 @@ def health_analysis_page():
     display_activities_table(activities_df)
 
 if __name__ == "__main__":
-    health_analysis_page()
+    main()

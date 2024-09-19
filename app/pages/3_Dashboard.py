@@ -3,7 +3,7 @@ from app.utils.data_processing import load_activities, analyse_activities
 from app.components.charts import plot_activity_types, plot_distance_over_time, plot_activity_heatmap
 from app.components.data_tables import display_summary_table
 
-def dashboard_page():
+def main():
     st.title("Health Data Dashboard")
 
     # Load activities
@@ -31,4 +31,4 @@ def dashboard_page():
     plot_activity_heatmap(activities_df)
 
 if __name__ == "__main__":
-    dashboard_page()
+    main()

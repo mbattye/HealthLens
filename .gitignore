@@ -1,2 +1,4 @@
 .env
 __pycache__
+strava_activities.csv
+app.log

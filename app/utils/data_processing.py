@@ -1,11 +1,12 @@
 import pandas as pd
 import os
 
+def clean_column_name(name):
+    return ' '.join(word.capitalize() for word in name.replace('_', ' ').split())
+
 def process_strava_activities(activities):
     df = pd.DataFrame(activities)
-    df['start_date'] = pd.to_datetime(df['start_date'])
-    df['distance'] = df['distance'] / 1000  # Convert to kilometers
-    df['moving_time'] = df['moving_time'] / 60  # Convert to minutes
+    df.columns = [clean_column_name(col) for col in df.columns]
     return df
 
 def save_activities(df, filename='strava_activities.csv'):
@@ -20,10 +21,9 @@ def load_activities(filename='strava_activities.csv'):
 
 def analyse_activities(df):
     summary = {
-        'total_activities': len(df),
-        'total_distance': df['distance'].sum(),
-        'total_time': df['moving_time'].sum(),
-        'avg_speed': df['average_speed'].mean(),
-        'activities_by_type': df['type'].value_counts().to_dict()
+        'Total Activities': len(df),
+        'Total Distance (km)': df['Distance'].sum() / 1000,
+        'Total Time (hours)': df['Moving Time'].sum() / 3600,
+        'Average Speed (km/h)': df['Average Speed'].mean() * 3.6,
     }
-    return summary
+    return {clean_column_name(k): v for k, v in summary.items()}
