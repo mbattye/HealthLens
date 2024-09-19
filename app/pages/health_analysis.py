@@ -23,7 +23,7 @@ def health_analysis_page():
             return
 
     # Analyze activities
-    summary = analyze_activities(activities_df)
+    summary = analyse_activities(activities_df)
 
     # Display summary
     st.header("Activity Summary")
