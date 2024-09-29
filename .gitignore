@@ -2,3 +2,4 @@
 __pycache__
 strava_activities.csv
 app.log
+.DS_Store

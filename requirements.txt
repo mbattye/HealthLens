@@ -3,4 +3,4 @@ plotly
 python-dotenv
 requests
 requests-oauthlib
-streamlit
+streamlit==1.38.0
